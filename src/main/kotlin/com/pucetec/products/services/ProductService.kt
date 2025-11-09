@@ -9,7 +9,9 @@ class ProductService(
     private val productRepository: ProductRepository
 ) {
     fun save(product: Product): Product? {
-        // primero buscamos si existe el producto
+        //Primero buscamos si existe el producto con ese nombre
+        //Luego si no existe, lo guardamos
+        // Si si existe, retornamos null
         val name = product.name
         val existingProduct: Product? = productRepository.findByName(name)
         if (existingProduct == null) {
